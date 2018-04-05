@@ -19,7 +19,7 @@ Attendees will learn about the latest trends in scientific computing and how to 
 
 ## Takeaways:
 
-### By the end of this workshop students will be able to:
+### By the end of this workshop attendees will be able to:
 * Have a basic understanding of Cyverse resources.
 * Have a basic understanding of Docker and containers in relation to science.
 * Launch Docker containers on their laptops.
