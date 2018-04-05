@@ -23,12 +23,16 @@ This workshop focuses specifically on the introducing the Agave platform, Cyvers
 * Launch computation on the UH HPC.
 
 
-## Requirements:
-* Participants should have a basic understanding of R
+## Requirements before the Workshop:
+* Participants should have a basic understanding of R - this interactive primer is about 2 hours (http://tryr.codeschool.com/)
 * Participants should bring their laptops and plan to participate actively. Laptops will require a browser application for accessing Cyverse and the other online resources.  
-* Docker will be required for running a special version of rstudio for the workshop - you can download and install Docker community edition for your specific operating system here (https://store.docker.com/search?type=edition&offering=community)
+* Docker will be required for running a special version of Rstudio for the workshop - you can download and install Docker community edition for your specific operating system here (https://store.docker.com/search?type=edition&offering=community)
 
 
 ## Registration:
 
 <button name="button" onclick="https://docs.google.com/forms/d/1tPQ0Z6qQJnuD4hG-p2C1GincGzScaO11Q0MzbzbTMz8/prefill">REGISTER HERE</button>
+
+
+## Questions:
+Please email seanbc@hawii.edu with any questions concerning the workshop.
