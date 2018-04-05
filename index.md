@@ -3,8 +3,10 @@
 <h2>Location: Information Technology Center Room 105A/B, UH Manoa</h2></center>
 <h3>Presenters: Rion Dooley (TACC), Sean Cleveland(UH), Ron Merrill (UH), David Schanzenbach (UH), and Jennifer Geis(UH)</h3>
 <center>
+<img src="https://www.hawaii.edu/wp/wp-content/uploads/2016/06/seal-name@2x.png"
 <img src="img/ci-logo.png" alt="Drawing" style="height: 100px;"/>
-<img src="http://www.hawaii.edu/epscor/wordpress/wp-content/uploads/2016/04/EPSCoR-Logo.placeholder200x65.png" alt="Drawing" style="height: 100px;"/>
+<img src="http://www.hawaii.edu/epscor/wp-content/uploads/2018/03/logo-epscor-and-ikewai.jpg" alt="Drawing" style="height: 100px;"/>
+<img src="https://www.tacc.utexas.edu/tacc-new-theme/images/logo.svg">
 </center>
 This FREE workshop is sponsored by the University of Hawai'i Information Technology Service Cyberinfrastructure group, Texas Advanced Computing Center and Hawai'i EPSCoR.
 
