@@ -32,7 +32,7 @@ This workshop focuses specifically on the introducing the Agave platform (http:/
 
 
 ## Registration:
-<input type="button" onclick="location.href='https://docs.google.com/forms/d/1tPQ0Z6qQJnuD4hG-p2C1GincGzScaO11Q0MzbzbTMz8/prefill';" value="REGISTER HERE" />
+<input type="button" onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSe3sKhfUPb9T4OnUM7ZC-W-P5zdC5aj7_aqpmM1x9eHsXUArw/viewform?usp=sf_link';" value="REGISTER HERE" />
 
 ## Questions:
 Please email seanbc@hawaii.edu with any questions concerning the workshop.
