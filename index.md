@@ -13,7 +13,7 @@ This FREE workshop is sponsored by the University of Hawai'i Information Technol
 
 This workshop focuses specifically on the introducing the Agave platform (http://agaveapi.co), Cyverse (http://cyverse.org) and Python Agave tools that enable advanced compute, data management and analysis on distributed resources.
 
--- We will <b>NOT</b> be teaching Python skills in this workshop, this interactive primer covers the basics (https://campus.datacamp.com/courses/intro-to-python-for-data-science) --
+-- We will <b>NOT</b> be teaching Python skills in this workshop, this interactive primer covers the basics (<a href="https://campus.datacamp.com/courses/intro-to-python-for-data-science">Intro To Python</a>) --
 
 ## Takeaways:
 
@@ -27,9 +27,9 @@ This workshop focuses specifically on the introducing the Agave platform (http:/
 
 
 ## Requirements before the Workshop:
-* Participants should have a basic understanding of Python - this interactive primer cover the basics (https://campus.datacamp.com/courses/intro-to-python-for-data-science)
+* Participants should have a basic understanding of Python - this interactive primer cover the basics (<a href="https://campus.datacamp.com/courses/intro-to-python-for-data-science">Intro to Python</a>)
 * Participants should bring their laptops and plan to participate actively. Laptops will require a browser application for accessing jupyter notebooks and Cyverse.  
-* Docker will be required for running a special jupter notebook environment for the workshop - you can download and install Docker community edition for your specific operating system here (https://store.docker.com/search?type=edition&offering=community)
+* Docker will be required for running a special jupter notebook environment for the workshop - you can download and install Docker community edition for your specific operating system here (<a href="https://store.docker.com/search?type=edition&offering=community">Docker Download</a>)
 
 
 ## Registration:
