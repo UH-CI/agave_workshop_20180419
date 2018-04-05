@@ -7,7 +7,7 @@
 <img src="https://www.hawaii.edu/wp/wp-content/uploads/2016/06/seal-name@2x.png"/>
 <img src="img/ci-logo.png" alt="Drawing" style="height: 100px;"/>
 <img src="http://www.hawaii.edu/epscor/wp-content/uploads/2018/03/logo-epscor-and-ikewai.jpg" alt="Drawing" style="height: 100px;"/>
-<img src="https://www.raspberrypi.org/app/themes/mind-control/images/icons/tacc.png">
+<img src="https://www.raspberrypi.org/app/themes/mind-control/images/icons/tacc.png" width="300px">
 </center>
 This FREE workshop is sponsored by the University of Hawai'i Information Technology Service Cyberinfrastructure group, Texas Advanced Computing Center and Hawai'i EPSCoR.
 
