@@ -8,10 +8,9 @@
 </center>
 This FREE workshop is sponsored by the University of Hawai'i Information Technology Service Cyberinfrastructure group, Texas Advanced Computing Center and Hawai'i EPSCoR.
 
+This workshop focuses specifically on the introducing the Agave platform (http://agaveapi.co), Cyverse (http://cyverse.org) and R Agave tools that enable advanced compute, data management and analysis on distributed resources.
 
-This workshop focuses specifically on the introducing the Agave platform, Cyverse and R Agave tools that can enable compute, data management and analysis on distributed resources.
-
--- We will NOT be teaching R skills in this workshop, this interactive primer is about 2 hours (http://tryr.codeschool.com/)--
+-- We will <b>NOT</b> be teaching R skills in this workshop, this interactive primer is about 2 hours (http://tryr.codeschool.com/) if you need basic R knowledge before the workshop--
 
 ## Takeaways:
 
