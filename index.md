@@ -32,8 +32,8 @@ Attendees will learn about the latest trends in scientific computing and how to 
 ## Requirements before the Workshop:
 * Participants should have a basic understanding of Python - this interactive primer cover the basics (<a href="https://campus.datacamp.com/courses/intro-to-python-for-data-science">Intro to Python</a>)
 * Participants should bring their laptops and plan to participate actively.
-* Laptops will require a browser application for accessing jupyter notebooks and Cyverse.  
-* Docker will be required for running a special jupter notebook environment for the workshop - you can download and install Docker community edition for your specific operating system here (<a href="https://store.docker.com/search?type=edition&offering=community">Docker Download</a>)
+* Laptops will require a browser application for accessing Jupyter notebooks and Cyverse.  
+* Docker will be required for running a special Jupyter notebook environment for the workshop - you can download and install Docker community edition for your specific operating system here (<a href="https://store.docker.com/search?type=edition&offering=community">Docker Download</a>)
 
 
 ## Registration:
