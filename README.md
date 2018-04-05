@@ -13,6 +13,8 @@ This FREE workshop is sponsored by the University of Hawai'i Information Technol
 
 This workshop focuses specifically on introducing the Agave platform (http://agaveapi.co), Cyverse (http://cyverse.org) and Python Agave tools that enable advanced compute, data management and analysis on distributed resources.
 
+Attendees will learn about the latest trends in scientific computing and how to access some of these amazing resources,including the UH High Performance computing cluster, for their own research with Agave.  In addition attendees will learn how to leverage Agave with Python for managing their compute and data.  Along the way we will introduce other tools such as Docker and Jupyter notebooks that can help enable reproducible and scientific analysis.
+
 -- We will <b>NOT</b> be teaching Python skills in this workshop, this interactive primer covers the basics (<a href="https://campus.datacamp.com/courses/intro-to-python-for-data-science">Intro To Python</a>) --
 
 ## Takeaways:
