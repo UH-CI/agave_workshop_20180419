@@ -23,6 +23,7 @@ This workshop focuses specifically on introducing the Agave platform (http://aga
 * Launch Docker containers on their laptops.
 * Create applications using Agave.
 * Use Agave to launch computational jobs.
+* Use Agave to manage data.
 * Launch computation on the UH HPC.
 
 
