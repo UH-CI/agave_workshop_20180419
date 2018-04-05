@@ -1,20 +1,5 @@
 
-<center><h1>Agave with Python for Compute and Analysis Workshop</h1>
-<h2>Date: April 19, 2018 9am-4:30pm</h2>
-<h2>Location: Information Technology Center Room 105A/B, UH Manoa</h2></center>
-<h3>Presenters: Rion Dooley (TACC), Sean Cleveland(UH), Ron Merrill (UH), David Schanzenbach (UH), and Jennifer Geis(UH)</h3>
-<center>
-<img src="https://www.hawaii.edu/wp/wp-content/uploads/2016/06/seal-name@2x.png"/>
-<img src="img/ci-logo.png" alt="Drawing" style="height: 100px;"/>
-<img src="http://www.hawaii.edu/epscor/wp-content/uploads/2018/03/logo-epscor-and-ikewai.jpg" alt="Drawing" style="height: 100px;"/>
-<img src="https://www.raspberrypi.org/app/themes/mind-control/images/icons/tacc.png" width="300px">
-</center>
-This FREE workshop is sponsored by the University of Hawai'i Information Technology Service Cyberinfrastructure group, Texas Advanced Computing Center and Hawai'i EPSCoR.
-
-This workshop focuses specifically on introducing the Agave platform (http://agaveapi.co), Cyverse (http://cyverse.org) and Python Agave tools that enable advanced compute, data management and analysis on distributed resources.
-
-
-<center><h1>Agave with Python for Compute and Analysis Workshop</h1>
+<<center><h1>Agave with Python for Compute and Analysis Workshop</h1>
 <h2>Date: April 19, 2018 9am-4:30pm</h2>
 <h2>Location: Information Technology Center Room 105A/B, UH Manoa</h2></center>
 <h3>Presenters: Rion Dooley (TACC), Sean Cleveland(UH), Ron Merrill (UH), David Schanzenbach (UH), and Jennifer Geis(UH)</h3>
