@@ -37,7 +37,7 @@ Attendees will learn about the latest trends in scientific computing and how to 
 
 
 ## Registration:
-Registration is limited. Please Register before April 16th.
+Registration is limited. <u>Please Register before April 16th.</u>
 
 <input type="button" onclick="location.href='https://docs.google.com/forms/d/e/1FAIpQLSe3sKhfUPb9T4OnUM7ZC-W-P5zdC5aj7_aqpmM1x9eHsXUArw/viewform?usp=sf_link';" value="REGISTER HERE" />
 
