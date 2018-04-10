@@ -34,6 +34,8 @@ Attendees will learn about the latest trends in scientific computing and how to 
 * Participants should bring their laptops and plan to participate actively.
 * Laptops will require a browser application for accessing Jupyter notebooks and Cyverse.  
 * Docker will be required for running a special Jupyter notebook environment for the workshop - you can download and install Docker community edition for your specific operating system here (<a href="https://store.docker.com/search?type=edition&offering=community">Docker Download</a>)
+* A terminal application will be required to use SSH for connecting to the UH HPC Mac and Linux should already have one for Windows we recommend <a href="https://mobaxterm.mobatek.net/download.html">MobaXterm</a>
+
 
 
 ## Registration:
