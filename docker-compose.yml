@@ -2,17 +2,53 @@ version: '2'
 
 volumes:
   training-volume:
+  ssh-keygen-volume:
+  jenkins-home-volume:
 
 services:
+
+  # traefik reverse proxy to expose the jupyter and jenkins servers over ssl via a common hostname
+  traefik:
+    image: traefik:latest
+    mem_limit: 512m
+    command: --debug=True --docker --docker.watch --web --web.address=:28443 --entryPoints='Name:http Address::80 --entryPoints='Name:https Address::443 --defaultEntryPoints='http,https'
+    ports:
+      - '443:443'
+      - '80:80'
+      - '28443:28443'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  # This is a single shot container that creates a set of ssh keys per instance
+  # and deploys them to a persistent volume shared between the sandbox and
+  # jupyter container. By doing this, we don't need to ship keys with the image
+  # or source.
+  ssh-keygen:
+    image: agaveplatform/jupyter-notebook:5.2
+    entrypoint: /bin/bash
+    command: /usr/local/bin/keygen.sh
+    user: jovyan
+    env_file:
+      - training.env
+    volumes:
+      - ssh-keygen-volume:/home/jovyan/.ssh
+      - ./docker/ssh-keygen/keygen.sh:/usr/local/bin/keygen.sh
+
   jupyter:
-    image: agaveplatform/jupyter-notebook:latest
+    image: agaveplatform/jupyter-notebook:5.2
     command: start-notebook.sh --NotebookApp.token=''
     mem_limit: 2048m
+    restart: on-failure
     ports:
       - '8888:8888'
+    depends_on:
+      - ssh-keygen
+    env_file:
+      - training.env
     environment:
+      - GRANT_SUDO=yes
       - VM_MACHINE=training-node-${AGAVE_USERNAME}
-      - VM_HOSTNAME=localhost:8888
+      - VM_HOSTNAME=localhost
       - USE_TUNNEL=True
       - ENVIRONMENT=training
       - SCRATCH_DIR=/home/jovyan
@@ -20,33 +56,67 @@ services:
       - MACHINE_NAME=sandbox
       - DOCKERHUB_NAME=stevenrbrandt
       - AGAVE_APP_DEPLOYMENT_PATH=agave-deployment
-      - AGAVE_CACHE_DIR=/home/jovyan/work/.agave
+      - AGAVE_CACHE_DIR=/home/jovyan/work/.${AGAVE_TENANT}
       - AGAVE_JSON_PARSER=jq
-      - AGAVE_USERNAME=${AGAVE_USERNAME}
-      - AGAVE_PASSWORD=${AGAVE_PASSWORD}
       - AGAVE_SYSTEM_SITE_DOMAIN=localhost
       - AGAVE_STORAGE_WORK_DIR=/home/jovyan
       - AGAVE_STORAGE_HOME_DIR=/home/jovyan
-      - AGAVE_APP_NAME=funwave-tvd-sc17-${AGAVE_USERNAME}
-      - AGAVE_STORAGE_SYSTEM_ID=nectar-storage-${AGAVE_USERNAME}
-      - AGAVE_EXECUTION_SYSTEM_ID=nectar-exec${AGAVE_USERNAME}
+      - AGAVE_APP_NAME=funwave-tvd-${AGAVE_TENANT}-${AGAVE_USERNAME}
+      - AGAVE_STORAGE_SYSTEM_ID=${AGAVE_TENANT}-storage-${AGAVE_USERNAME}
+      - AGAVE_EXECUTION_SYSTEM_ID=${AGAVE_TENANT}-exec-${AGAVE_USERNAME}
     volumes:
+      - ssh-keygen-volume:/home/jovyan/.ssh:ro
       - training-volume:/home/jovyan/work
-      - ../notebooks:/home/jovyan/notebooks
+      - .:/home/jovyan/notebooks
+    labels:
+      - "traefik.port=8888"
+      - "traefik.protocol=http"
+      - "traefik.tags=${AGAVE_USERNAME},jupyter"
+      - "traefik.backend=${AGAVE_USERNAME}-training"
+      - "traefik.frontend.rule=PathPrefix:/"
+
   sandbox:
-    image: agaveplatform/sc17-sandbox:latest
+    image: agaveplatform/training-sandbox:latest
     mem_limit: 2048m
     privileged: True
+    restart: on-failure
     ports:
       - '10022:22'
+    depends_on:
+      - ssh-keygen
+    env_file:
+      - training.env
     environment:
-      - VM_MACHINE=training-node-${AGAVE_USERNAME}
-      - NGROK_TOKEN=${NGROK_TOKEN}
-      - USE_TUNNEL=True
-      - ENVIRONMENT=training
-      - AGAVE_CACHE_DIR=/home/jovyan/work/.agave
+      - VM_MACHINE=$$ENVIRONMENT-node-$$AGAVE_USERNAME
     volumes:
+      - ssh-keygen-volume:/home/jovyan/.ssh:ro
       - training-volume:/home/jovyan/work
       - /var/run/docker.sock:/var/run/docker.sock
-      - $HOME/.docker:/home/jovyan/.docker:ro
+    labels:
+      - traefik.enable=false
 
+  jenkins:
+    image: agaveplatform/jenkins:sc18
+    mem_limit: 2048m
+    privileged: True
+    restart: on-failure
+    ports:
+      - '8080:8080'
+      - '8443:8443'
+    depends_on:
+      - ssh-keygen
+    env_file:
+      - training.env
+    environment:
+      - AGAVE_CACHE_DIR=/var/jenkins_home/.$AGAVE_TENANT
+#      - JENKINS_OPTS="--prefix=/jenkins "
+    volumes:
+      - ssh-keygen-volume:/var/jenkins_home/.ssh:ro
+#      - jenkins-home-volume:/var/jenkins_home
+    labels:
+      - "traefik.port=8080"
+      - "traefik.protocol=http"
+      - "traefik.tags=jenkins"
+      - "traefik.backend=jenkins"
+      - "traefik.frontend.rule=PathPrefix:/jenkins"
+      - "traefik.frontend.passHostHeader=true"
