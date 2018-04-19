@@ -34,6 +34,8 @@ services:
       - ssh-keygen-volume:/home/jovyan/.ssh
       - ./docker/ssh-keygen/keygen.sh:/usr/local/bin/keygen.sh
 
+  # Jupyter server customized for the tenant and user specified by the AGAVE_USERNAME,
+  # AGAVE_PASSWORD, and AGAVE_TENANT environment variables defined in the compose command
   jupyter:
     image: agaveplatform/jupyter-notebook:5.2
     command: start-notebook.sh --NotebookApp.token=''
@@ -61,7 +63,7 @@ services:
       - AGAVE_SYSTEM_SITE_DOMAIN=localhost
       - AGAVE_STORAGE_WORK_DIR=/home/jovyan
       - AGAVE_STORAGE_HOME_DIR=/home/jovyan
-      - AGAVE_APP_NAME=funwave-tvd-${AGAVE_TENANT}-${AGAVE_USERNAME}
+      - AGAVE_APP_NAME=funwave-tvd-hawaii-${AGAVE_USERNAME}
       - AGAVE_STORAGE_SYSTEM_ID=${AGAVE_TENANT}-storage-${AGAVE_USERNAME}
       - AGAVE_EXECUTION_SYSTEM_ID=${AGAVE_TENANT}-exec-${AGAVE_USERNAME}
     volumes:
@@ -75,6 +77,7 @@ services:
       - "traefik.backend=${AGAVE_USERNAME}-training"
       - "traefik.frontend.rule=PathPrefix:/"
 
+  # sandbox ubuntu server with build tools, OpenMP, and the sample code
   sandbox:
     image: agaveplatform/training-sandbox:latest
     mem_limit: 2048m
@@ -87,7 +90,7 @@ services:
     env_file:
       - training.env
     environment:
-      - VM_MACHINE=$$ENVIRONMENT-node-$$AGAVE_USERNAME
+      - VM_MACHINE=training-node-${AGAVE_USERNAME}
     volumes:
       - ssh-keygen-volume:/home/jovyan/.ssh:ro
       - training-volume:/home/jovyan/work
@@ -95,6 +98,7 @@ services:
     labels:
       - traefik.enable=false
 
+  # Jenkins CI server for automated builds.
   jenkins:
     image: agaveplatform/jenkins:sc18
     mem_limit: 2048m
@@ -108,11 +112,9 @@ services:
     env_file:
       - training.env
     environment:
-      - AGAVE_CACHE_DIR=/var/jenkins_home/.$AGAVE_TENANT
-#      - JENKINS_OPTS="--prefix=/jenkins "
+      - AGAVE_CACHE_DIR=/var/jenkins_home/.${AGAVE_TENANT}
     volumes:
       - ssh-keygen-volume:/var/jenkins_home/.ssh:ro
-#      - jenkins-home-volume:/var/jenkins_home
     labels:
       - "traefik.port=8080"
       - "traefik.protocol=http"
